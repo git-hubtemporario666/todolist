@@ -1,0 +1,286 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #212226;
+
+  /* padding: 20px; */
+  min-height: 100vh;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  margin: 0;
+}
+
+#menu {
+  width: 200px;
+  background: #29292a;
+  padding: 20px;
+  /* border-radius: 15px;  */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#menu li {
+  padding: 10px;
+  list-style: none;
+  margin: 0;
+}
+
+#menu ul {
+  margin: 30px 0 0 0;
+  padding: 0;
+}
+
+#menu a {
+  color: #666569;
+  text-decoration: none;
+}
+
+#menu a:hover {
+  color: #ffffff;
+}
+
+#menu li.selected {
+  border-radius: 10px;
+  background-color: #323235d4;
+}
+
+.container {
+  width: 100%;
+  background: #181818;
+  padding: 20px 60px;
+  /* border-radius: 15px; */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  color: #eae9e9;
+  font-size: 35px;
+  font-weight: 300;
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+h2 {
+  color: #eae9e9;
+  font-weight: 100;
+  font-size: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.todo-columns {
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+}
+
+.column {
+  width: 48%;
+  background: linear-gradient(136deg, #3d3e40be, #28292a8a, #0f292bb0);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* border-left: 6px solid #f2cb05; */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  /* border-bottom: 2px solid #3c3d40; */
+  margin: 0 20px 16px;
+  /* padding: 0 0 16px; */
+}
+
+input,
+select {
+  padding: 10px;
+  background-color: #3c3d40;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+  color: #c6c2c2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: inset 1px 1px 2px 0px #000;
+}
+
+input[type="checkbox"] {
+  accent-color: #616161;
+  box-shadow: none;
+}
+
+input:focus,
+select:focus {
+  background-color: #494a4d;
+  outline: none;
+}
+
+button {
+  background: linear-gradient(#2e8186, #1c4c50e7);
+  color: rgb(225, 223, 223);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background 0.9s ease;
+  box-shadow: 1px 1px 2px 1px #292929;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+button:hover {
+  background: linear-gradient(#2e8186, #2e8186);
+}
+button:active {
+  box-shadow: inset 1px 1px 2px 1px #292929;
+}
+/* Estilização dos links de data */
+.date-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.date-links a {
+  text-decoration: none;
+  /* font-weight: bold; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(225, 223, 223);
+  background: linear-gradient(#2e8186, #1c4c50e7);
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  box-shadow: 1px 1px 2px 1px #292929;
+}
+
+.date-links a:hover {
+  background: #2e8186;
+}
+.date-links a:active {
+  box-shadow: inset 1px 1px 2px 1px #292929;
+}
+/* Lista de tarefas */
+.container ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.container li {
+  position: relative;
+  background: #f9f9f9;
+  margin: 5px auto;
+  border-radius: 5px;
+  border-left: 5px solid transparent;
+  font-size: 14px;
+  max-width: 90%;
+  transition: transform 0.3s ease;
+}
+
+.container li:hover {
+  transform: translateX(-30px);
+  transition: transform 0.3s ease;
+}
+
+.container li:hover button.remove {
+  opacity: 1;
+}
+
+.task-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2f2f37cc;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-content h3 {
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #e0e0e0;
+}
+
+.task-content p {
+  font-size: 12px;
+  color: #8b8b8b;
+  margin: 2px 0 0;
+  text-align: left;
+  padding-top: 5px;
+}
+
+/* Tarefas concluídas - cor do texto quase sumindo */
+li.completed .task-content h3,
+li.completed .task-content p {
+  color: #545353;
+}
+li.completed .task-wrapper {
+  background-color: #444546;
+}
+
+/* Botão de excluir */
+button.remove {
+  position: absolute;
+  top: 0px;
+  right: -30px;
+  height: 100%;
+  width: 30px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  line-height: 10px;
+  margin: 0;
+}
+
+li.high {
+  background: #ff0000;
+}
+li.medium {
+  background: #ffc800;
+}
+li.low {
+  background: #00ff00;
+}
+
+#tasks-content ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .todo-columns {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .date-links {
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(180deg); /* Alterando cor */
+  cursor: pointer;
+}

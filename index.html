@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List, by Dani and GPT</title>
+    <link rel="stylesheet" href="todolist.css">
+</head>
+
+<body>
+    <div id="menu">
+        <a id="home" href="#">Add Tasks</a>
+        <nav>
+            <ul class="nav-links">
+                <li class=""><a href="#" id="routine">Routine</a></li>
+                <li><a href="#" id="today">Today</a></li>
+                <li><a href="#" id="important">Important</a></li>
+                <li><a href="#" id="all">All Tasks</a></li>
+                <li><a href="#" id="completed">Done</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <header>To Do List</header>
+        <div id="home-content">
+            <div class="todo-columns">
+                <div class="column routine">
+                    <h2>Routine Tasks</h2>
+                    <form class="form">
+                        <input type="text" id="routine-name" placeholder="Task name" required maxlength="255">
+                        <input type="date" id="routine-date" required>
+                        <input type="time" id="routine-time" required>
+                        <button onclick="addTask('routine')">Add Routine Task</button>
+                    </form>
+                    <ul id="routine-list"></ul>
+                </div>
+
+                <div class="column daily">
+                    <h2>Daily Tasks</h2>
+                    <form class="form">
+                        <input type="text" id="daily-name" placeholder="Task name" required>
+                        <input type="date" id="daily-date" required>
+                        <input type="time" id="daily-time" required>
+                        <select id="daily-priority">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        <button onclick="addTask('daily')">Add Daily Task</button>
+                    </form>
+
+                    <!-- <div class="date-links">
+                        <a href="#" id="yesterday" data-date="2025-02-13">Yesterday</a>
+                        <a href="#" id="today">Today</a>
+                        <a href="#" id="tomorrow">Tomorrow</a>
+                    </div> -->
+
+                    <ul id="daily-list"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="tasks-content">
+            <ul id="tasks-list"></ul>
+        </div>
+    </div>
+    <script src="todolist.js"></script>
+</body>
+
+</html>
