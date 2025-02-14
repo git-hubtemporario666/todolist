@@ -1,0 +1,40 @@
+services:
+ # PHP and Apache service
+ php:
+   # platform: linux/x86_64
+   container_name: todolist_php
+   build:
+     context: ./
+     dockerfile: ./Dockerfile
+   ports:
+     - "8080:80"
+   volumes:
+     - .:/var/www/html # Mount the current directory as the web root
+   depends_on:
+     - mysql # Ensure the MySQL service is started before PHP
+
+ # MySQL database service
+ mysql:
+   # platform: linux/x86_64
+   container_name: todolist_mysql
+   image: mysql:8.0
+   ports:
+     - '3306:3306'
+   environment:
+     MYSQL_DATABASE: 'todolist'
+     MYSQL_USER: 'mysql'
+     MYSQL_PASSWORD: 'mysql'
+     MYSQL_ROOT_PASSWORD: '1234'
+   volumes:
+     - mysql:/var/lib/todolist_mysql
+
+ phpmyadmin:
+   image: phpmyadmin
+   restart: always
+   ports:
+     - 8888:80
+   environment:
+     - PMA_ARBITRARY=1
+
+volumes:
+ mysql:
